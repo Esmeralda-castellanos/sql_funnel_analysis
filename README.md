@@ -1,4 +1,4 @@
-# E-commerce Funnel Analysis with BigQuery and Tableau
+# E-Commerce Funnel Analysis with BigQuery and Tableau
 
 ## Executive Summary
 
@@ -18,7 +18,9 @@ Among marketing channels, **email** delivered the strongest conversion efficienc
 
 From a timing perspective, converted users moved quickly through the funnel, taking an average of 11 minutes from view to cart, 13 minutes from cart to purchase, and 24 minutes from first view to final purchase.
 
-Revenue analysis showed 541 buyers generated total revenue of 58,322.19, with an average order value of 107.80 and revenue per visitor of 17.77.
+Revenue analysis showed 541 buyers generated total revenue of €58,322.19, with an average order value of €107.80 and revenue per visitor of €17.77.
+
+---
 
 ## Project Objective
 
@@ -32,12 +34,18 @@ The project answers the following business questions:
 - How long does conversion typically take?
 - How much revenue does the funnel generate overall?
 
+---
+
 ## Tools Used
 
-- **Google BigQuery** for SQL querying and transformation
-- **Tableau Public** for dashboard creation and storytelling
-- **GitHub** for project documentation and portfolio presentation
-- **CSV exports** from BigQuery views for Tableau Public compatibility
+| Tool | Purpose |
+|------|---------|
+| **Google BigQuery** | SQL querying, view creation, and data transformation |
+| **Tableau Public** | Dashboard creation and data storytelling |
+| **GitHub** | Project documentation and portfolio presentation |
+| **CSV exports** | Bridge between BigQuery and Tableau Public |
+
+---
 
 ## Dataset Overview
 
@@ -51,21 +59,57 @@ The dataset contains user-level event records from an e-commerce funnel. The ana
 
 The main funnel events analyzed are:
 
-- `page_view`
-- `add_to_cart`
-- `checkout_start`
-- `payment_info`
-- `purchase`
+| Event | Description |
+|-------|-------------|
+| `page_view` | User visits a product or site page |
+| `add_to_cart` | User adds an item to their cart |
+| `checkout_start` | User begins the checkout process |
+| `payment_info` | User enters payment details |
+| `purchase` | User completes the transaction |
 
-To match the tutorial window and ensure reproducible results, the analysis was limited to the fixed date range:
+To ensure reproducible results, the analysis was limited to a fixed 30-day window:
+**January 11, 2026 – February 10, 2026**
 
-- `2026-01-11` to `2026-02-10`
+---
+
+## Tableau Visualizations
+
+### E-Commerce Funnel Performance Dashboard
+
+The main dashboard combining KPI cards, funnel conversion rates, traffic source performance, and time-to-conversion in a single view.
+
+> **[View on Tableau Public →](https://public.tableau.com/views/SQLFunnelBook/Dashboard1)**
+
+<!-- Embed -->
+<div class='tableauPlaceholder' id='viz1780090522460' style='position: relative'><noscript><a href='#'><img alt='E-Commerce Funnel Performance Dashboard ' src='https://public.tableau.com/static/images/SQ/SQLFunnelBook/Dashboard1/1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /><param name='embed_code_version' value='3' /><param name='site_root' value='' /><param name='name' value='SQLFunnelBook/Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https://public.tableau.com/static/images/SQ/SQLFunnelBook/Dashboard1/1.png' /><param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-GB' /><param name='filter' value='publish=yes' /></object></div><script type='text/javascript'>var divElement = document.getElementById('viz1780090522460');var vizElement = divElement.getElementsByTagName('object')[0];if(divElement.offsetWidth > 800){vizElement.style.width='1200px';vizElement.style.height='827px';}else if(divElement.offsetWidth > 500){vizElement.style.width='1200px';vizElement.style.height='827px';}else{vizElement.style.width='100%';vizElement.style.height='1477px';}var scriptElement = document.createElement('script');scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
+
+---
+
+### Overall Funnel Rates
+
+Step-by-step conversion rates across the purchase funnel, highlighting the weakest and strongest transition points.
+
+> **[View on Tableau Public →](https://public.tableau.com/views/SQLFunnelBook/Overallfunnelrates)**
+
+<!-- Embed -->
+<div class='tableauPlaceholder' id='viz1780090605239' style='position: relative'><noscript><a href='#'><img alt='Overall funnel rates — Step-to-step conversion rates across the purchase funnel' src='https://public.tableau.com/static/images/SQ/SQLFunnelBook/Overallfunnelrates/1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /><param name='embed_code_version' value='3' /><param name='site_root' value='' /><param name='name' value='SQLFunnelBook/Overallfunnelrates' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https://public.tableau.com/static/images/SQ/SQLFunnelBook/Overallfunnelrates/1.png' /><param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div><script type='text/javascript'>var divElement = document.getElementById('viz1780090605239');var vizElement = divElement.getElementsByTagName('object')[0];vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';var scriptElement = document.createElement('script');scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
+
+---
+
+### Traffic Source Funnel
+
+Purchase performance and cart-to-purchase conversion rates broken down by marketing channel.
+
+> **[View on Tableau Public →](https://public.tableau.com/views/SQLFunnelBook/Trafficsourcefunnel)**
+
+<!-- Embed -->
+<div class='tableauPlaceholder' id='viz1780090556742' style='position: relative'><noscript><a href='#'><img alt='Traffic Source Funnel' src='https://public.tableau.com/static/images/SQ/SQLFunnelBook/Trafficsourcefunnel/1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /><param name='embed_code_version' value='3' /><param name='site_root' value='' /><param name='name' value='SQLFunnelBook/Trafficsourcefunnel' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https://public.tableau.com/static/images/SQ/SQLFunnelBook/Trafficsourcefunnel/1.png' /><param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-GB' /><param name='filter' value='publish=yes' /></object></div><script type='text/javascript'>var divElement = document.getElementById('viz1780090556742');var vizElement = divElement.getElementsByTagName('object')[0];vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';var scriptElement = document.createElement('script');scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
+
+---
 
 ## Key Results
 
 ### Funnel Stage Volume
-
-The funnel counts show a clear drop-off from initial engagement to purchase:
 
 | Funnel Stage | Users |
 |-------------|------:|
@@ -75,11 +119,9 @@ The funnel counts show a clear drop-off from initial engagement to purchase:
 | Payment Info | 585 |
 | Purchase | 541 |
 
-This means that only 541 of the 3,282 users who entered the funnel completed a purchase.
+Only 541 of the 3,282 users who entered the funnel completed a purchase — a 16.48% overall conversion rate.
 
 ### Funnel Conversion Rates
-
-The conversion-rate output highlights where the biggest losses occur:
 
 | Conversion Step | Rate |
 |----------------|-----:|
@@ -87,33 +129,25 @@ The conversion-rate output highlights where the biggest losses occur:
 | Cart to Checkout | 71.05% |
 | Checkout to Payment | 78.95% |
 | Payment to Purchase | 92.48% |
-| Overall Conversion | 16.48% |
+| **Overall Conversion** | **16.48%** |
 
-The weakest step is the transition from **page view to add to cart**, suggesting the largest drop-off happens early in the journey. By contrast, the strongest step is **payment to purchase**, which suggests that once users reach the payment stage, they are highly likely to complete the transaction.
+The weakest step is the transition from **page view to add to cart** (31.78%), suggesting the largest drop-off happens early in the journey. By contrast, the **payment to purchase** step is the strongest at 92.48%, meaning users who reach the payment stage are highly likely to complete the transaction.
 
 ### Marketing Channel Performance
 
-Traffic-source analysis shows strong differences in both volume and quality:
-
-| Traffic Source | Views | Carts | Purchases | Cart Conversion Rate | Purchase Conversion Rate | Cart-to-Purchase Rate |
-|---------------|------:|------:|----------:|---------------------:|-------------------------:|----------------------:|
+| Traffic Source | Views | Carts | Purchases | Cart Conv. Rate | Purchase Conv. Rate | Cart-to-Purchase Rate |
+|---------------|------:|------:|----------:|----------------:|--------------------:|----------------------:|
 | Organic | 1,326 | 449 | 226 | 33.86% | 17.04% | 50.33% |
 | Paid Ads | 630 | 239 | 132 | 37.94% | 20.95% | 55.23% |
 | Email | 360 | 227 | 123 | 63.06% | 34.17% | 54.19% |
 | Social | 966 | 128 | 60 | 13.25% | 6.21% | 46.88% |
 
-Key observations:
-
-- **Organic** brings the highest number of views and purchases overall.
-- **Email** is the most efficient converting channel by a wide margin.
-- **Paid Ads** performs well and delivers balanced conversion quality.
-- **Social** underperforms significantly in both cart and purchase conversion.
-
-This suggests that traffic volume alone does not guarantee business value. The best-performing acquisition channels are the ones that produce qualified users, not just visits.
+- **Organic** drives the highest purchase volume but with moderate efficiency
+- **Email** is the most efficient channel — 63% of email visitors add to cart, and 34% purchase
+- **Paid Ads** delivers balanced volume and quality
+- **Social** brings significant traffic but converts at the lowest rate across all stages
 
 ### Time to Conversion
-
-The time-to-conversion output shows that converted users move through the funnel relatively quickly:
 
 | Metric | Value |
 |--------|------:|
@@ -122,106 +156,85 @@ The time-to-conversion output shows that converted users move through the funnel
 | Avg Cart to Purchase | 13 minutes |
 | Avg Total Journey | 24 minutes |
 
-This indicates that users who convert generally make purchase decisions within a short time frame. That may suggest low-friction checkout behavior for high-intent visitors.
+Converted users complete the entire purchase journey in under 25 minutes on average, suggesting high-intent behavior among buyers.
 
-### Revenue Funnel Performance
+### Revenue Funnel
 
-The revenue view connects behavioral funnel performance to monetary outcomes:
-
-| Revenue Metric | Value |
-|---------------|------:|
+| Metric | Value |
+|--------|------:|
 | Total Visitors | 3,282 |
 | Total Buyers | 541 |
 | Total Orders | 541 |
-| Total Revenue | 58,322.19 |
-| Avg Order Value | 107.80 |
-| Revenue per Buyer | 107.80 |
-| Revenue per Visitor | 17.77 |
+| Total Revenue | €58,322.19 |
+| Avg Order Value | €107.80 |
+| Revenue per Buyer | €107.80 |
+| Revenue per Visitor | €17.77 |
 
-Because total buyers and total orders are equal, each buyer appears to have made one order during the selected period.
+Total buyers and total orders are equal, indicating each buyer made exactly one purchase during the analysis window — no repeat purchases were detected in this 30-day period.
+
+---
 
 ## Business Insights
 
-Based on the analysis, the strongest takeaways are:
+1. **Top-of-funnel engagement is the biggest opportunity.** Only 31.78% of visitors add anything to their cart. Improving product page design, CTAs, and recommendation logic could significantly increase this rate without acquiring more traffic.
 
-- The largest funnel loss happens between **page view and add to cart**, making top-of-funnel engagement the most important area for optimization.
-- **Email** is the most effective channel in terms of conversion efficiency, even though it does not generate the most traffic.
-- **Organic** is the largest source of purchases by volume and remains an important acquisition driver.
-- **Social** brings traffic but converts poorly, suggesting weak audience targeting, low purchase intent, or poor traffic quality.
-- Users who eventually purchase do so quickly, which means remarketing and conversion strategies may be most effective within a short decision window.
-- Revenue performance is driven more by conversion quality than by raw traffic volume.
+2. **Email is the highest-quality acquisition channel.** Despite having the lowest traffic volume, email converts at more than double the rate of organic and nearly 5x the rate of social. Investing in email list growth and nurture sequences would likely improve overall revenue efficiently.
 
-## Tableau Story Structure
+3. **Organic is the volume engine.** It drives the most purchases in absolute terms and remains the most important channel for scale. SEO and content investment should be maintained.
 
-The Tableau story for this project is organized into five main views:
+4. **Social underperforms significantly.** A 13.25% cart conversion rate compared to 63.06% for email suggests social traffic is either poorly targeted, low-intent, or landing on pages that do not convert well. The social strategy warrants a review.
 
-1. **Overall Funnel Counts**  
-   A stage-by-stage chart showing how many users reached each point in the purchase journey.
+5. **Buyers decide fast.** The 24-minute average journey suggests purchase decisions happen in a single session for converting users. Remarketing windows longer than a few hours may be targeting users who were never going to convert.
 
-2. **Funnel Conversion Rates**  
-   A chart highlighting the strongest and weakest step conversions.
+6. **Revenue is driven by conversion quality, not traffic volume.** Social has 2.7x the traffic of email but generates less than half the purchases. Acquisition strategy should prioritize channel efficiency over raw visit counts.
 
-3. **Traffic Source Funnel Performance**  
-   A comparison of views, carts, and purchases across marketing channels.
+---
 
-4. **Traffic Source Conversion Efficiency**  
-   A focused view comparing purchase conversion and cart-to-purchase efficiency by channel.
+## SQL Structure
 
-5. **Time and Revenue KPIs**  
-   Summary KPI views showing average time-to-conversion and revenue outcomes.
+This project uses two SQL files:
 
-This structure supports a clear business story: volume enters the funnel, users drop off at different stages, channels behave differently, conversion speed matters, and all of this ultimately affects revenue.
+### `sql/funnel_analysis.sql`
+Exploratory queries used to preview the raw data and develop the funnel logic step by step:
+- Step 0: Raw event preview
+- Step 1: Funnel stage counts
+- Step 2: Step-by-step conversion rates
+- Step 3: Funnel performance by traffic source
+- Step 4: Time-to-conversion analysis
+- Step 5: Revenue funnel metrics
 
-## SQL Outputs Used
+### `sql/create_views.sql`
+Production-ready BigQuery views created from the exploratory queries above:
+- `v_funnel_counts` — stage-level user counts
+- `v_funnel_rates` — step-by-step conversion rates
+- `v_funnel_by_source` — channel performance breakdown
+- `v_time_to_conversion` — average minutes between journey events
+- `v_revenue_funnel` — revenue and order value metrics
 
-The following BigQuery views were created and exported as CSV files for use in Tableau Public:
+These views were exported as CSV files to connect to Tableau Public, since Tableau Public does not support a live BigQuery connection.
 
-- `v_funnel_counts.csv`
-- `v_funnel_rates.csv`
-- `v_funnel_by_source.csv`
-- `v_time_to_conversion.csv`
-- `v_revenue_funnel.csv`
-
-These files act as the bridge between BigQuery and Tableau Public, since Tableau Public does not support a direct BigQuery connection.
+---
 
 ## Skills Demonstrated
 
-This project demonstrates the ability to:
+- Writing multi-step SQL queries in Google BigQuery
+- Building funnel analysis using conditional aggregation (`COUNT DISTINCT CASE WHEN`)
+- Calculating step-by-step conversion rates with `SAFE_DIVIDE`
+- Segmenting performance by traffic source using `GROUP BY`
+- Analyzing time-to-conversion using `TIMESTAMP_DIFF` and `HAVING`
+- Connecting behavioral analysis to revenue metrics
+- Creating reusable BigQuery views (`CREATE OR REPLACE VIEW`)
+- Exporting SQL outputs for use in Tableau Public
+- Building a business-facing dashboard in Tableau with KPI cards, bar charts, and color-coded insights
 
-- Write SQL queries in BigQuery
-- Build multi-step funnel analysis using conditional aggregation
-- Calculate conversion rates across funnel stages
-- Segment performance by traffic source
-- Analyze time-to-conversion using timestamp logic
-- Connect behavioral analysis to revenue metrics
-- Prepare SQL outputs for BI visualization
-- Build a business-facing story in Tableau
-
-## Repository Structure
-
-Suggested repository structure:
-
-```text
-├── README.md
-├── sql/
-│   ├── funnel_analysis.sql
-│   └── create_views.sql
-├── data/
-│   ├── v_funnel_counts.csv
-│   ├── v_funnel_rates.csv
-│   ├── v_funnel_by_source.csv
-│   ├── v_time_to_conversion.csv
-│   └── v_revenue_funnel.csv
-├── tableau/
-│   ├── funnel_analysis.twb
-│   └── screenshots/
-└── images/
-```
+---
 
 ## Conclusion
 
 This project transforms raw event-level e-commerce data into a structured funnel analysis workflow using BigQuery and Tableau.
 
-The results show that the funnel performs strongest in later-stage conversion, while the biggest loss occurs at the first major behavioral step from page view to add to cart. Channel analysis further reveals that email is the most efficient traffic source, organic is the strongest driver of purchase volume, and social underperforms on conversion quality.
+The results show that the funnel performs strongest in later-stage conversion — once users reach checkout, they are likely to purchase. The critical gap is at the top of the funnel, where only 31.78% of visitors engage enough to add an item to their cart.
 
-Overall, the project demonstrates how SQL-based funnel analysis can be turned into a clear visual business story that supports marketing, conversion, and revenue decision-making.
+Channel analysis reveals that email is the most efficient acquisition source, organic drives the most purchase volume, and social underperforms on conversion quality despite generating significant traffic.
+
+The findings point to two clear priorities: improving top-of-funnel engagement on product pages, and doubling down on email as the highest-return acquisition channel.
