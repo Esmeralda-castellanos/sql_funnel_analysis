@@ -1,0 +1,1 @@
+SELECT  FROM `project-0e230ae7-fb71-4b05-bba.user_events.v_revenue_funnel` LIMIT 1000
